@@ -19,7 +19,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/it5420/api")
-@CrossOrigin(origins = "http://localhost:8081")
+//@CrossOrigin(origins = "http://localhost:8081")
 @Tag(name = "news")
 public class NewsController {
 
