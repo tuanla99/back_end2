@@ -7,31 +7,44 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+import java.util.Date;
 import java.util.List;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Document(value = "news")
+@Document(collection = "newspaper")
 public class News {
     @Id
     private String id ;
 
-    private String topic ;
+    @Field(value = "Trang")
     private String newspaper ;
 
-    @Field(value = "publish_date")
-    private String publishDate ;
+    @Field(value = "Category")
+    private String topic ;
 
-    @Field(value = "created_date")
-    private String createdDate ;
+    @Field(value = "Title")
+    private String title ;
 
-    private String language ;
-    private String sapo ;
+    @Field(value = "Hour")
+    private String hour ;
+
+    @Field(value = "Total_second")
+    private int totalSecond ;
+
+    @Field(value = "Date")
+    private Date date ;
+
+    @Field(value = "NoiDung")
     private List<Content> contents ;
 
-    @Field(value = "feature_images")
-    private List<FeatureImage> featureImages ;
+    @Field(value = "Description")
+    private String description ;
 
-    private String avatar ;
+    @Field(value = "Imagelink")
+    private String imageLink ;
+
+    @Field(value = "NewspaperLink")
+    private String newspaperLink ;
 }

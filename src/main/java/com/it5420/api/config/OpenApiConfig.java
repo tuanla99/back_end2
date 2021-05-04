@@ -14,10 +14,13 @@ import java.util.List;
 public class OpenApiConfig {
     @Bean
     public OpenAPI customOpenAPI(){
-        Server server = new Server();
+        Server server1 = new Server();
+        Server server2 = new Server();
         List<Server> servers = new ArrayList<>();
-        server.url("http://localhost:8082") ;
-        servers.add(server) ;
+        server1.url("http://localhost:8082") ;
+        server2.url("https://it5420.herokuapp.com/");
+        servers.add(server1) ;
+        servers.add(server2) ;
         return new OpenAPI()
                 // Thiết lập các server dùng để test api
                 .servers( servers)
