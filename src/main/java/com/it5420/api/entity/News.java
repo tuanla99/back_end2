@@ -47,4 +47,7 @@ public class News {
 
     @Field(value = "NewspaperLink")
     private String newspaperLink ;
+
+    @Field(value = "similar")
+    private List<String> similar ;
 }

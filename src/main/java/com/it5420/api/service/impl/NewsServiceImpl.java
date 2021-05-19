@@ -10,6 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -40,7 +41,17 @@ public class NewsServiceImpl implements NewsService {
 
     @Override
     public List<News> similarNews(String id) {
-        return null;
+        News news = newsRepository.getById(id) ;
+        List<String> similar_id = news.getSimilar() ;
+        if (similar_id.size()>0){
+            List<News> similar = new ArrayList<>();
+            for (int i=0;i<similar_id.size();i++){
+                similar.add(newsRepository.getById(similar_id.get(i))) ;
+            }
+            return similar;
+        }else {
+            return null ;
+        }
     }
 
 }

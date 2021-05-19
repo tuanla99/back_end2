@@ -68,4 +68,12 @@ public class NewsController {
     ){
         return new ResponseEntity<>(newsService.search(text),HttpStatus.OK) ;
     }
+
+    @GetMapping("/similar")
+    public ResponseEntity<List<News>> similar(
+            @Parameter(description = "Danh sách các bài tương tự, params la news_id", required = true)
+            @RequestParam(name = "news_id") String news_id
+    ){
+        return new ResponseEntity<>(newsService.similarNews(news_id),HttpStatus.OK) ;
+    }
 }
