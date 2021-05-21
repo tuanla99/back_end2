@@ -26,12 +26,12 @@ public class NewsServiceImpl implements NewsService {
 
     @Override
     public Page<News> findByNewspaper(String newspaper, int offset, int limit) {
-        return newsRepository.findByNewspaperAllIgnoreCase(newspaper,PageRequest.of(offset,limit,Sort.by("date").descending()));
+        return newsRepository.findByNewspaperContainingAllIgnoreCase(newspaper,PageRequest.of(offset,limit,Sort.by("date").descending()));
     }
 
     @Override
     public Page<News> findByTopic(String topic, int offset, int limit) {
-        return newsRepository.findByTopicAllIgnoreCase(topic,PageRequest.of(offset,limit,Sort.by("date").descending()));
+        return newsRepository.findByTopicContainingAllIgnoreCase(topic,PageRequest.of(offset,limit,Sort.by("date").descending()));
     }
 
     @Override
