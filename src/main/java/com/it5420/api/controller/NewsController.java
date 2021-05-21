@@ -61,7 +61,7 @@ public class NewsController {
         return new ResponseEntity<>(newsService.findByNewspaper(newspaper,offset,limit), HttpStatus.OK) ;
     }
 
-    @GetMapping("/news/{category}/{offset}/{limit}")
+    @GetMapping("/news/category/{category}/{offset}/{limit}")
 
     public ResponseEntity<Page<News>> getNewsByTopic(
             @Parameter(description = "category : Thoi su, ... , offset: trang bat dau, limit: so bai lay  ", required = true)
