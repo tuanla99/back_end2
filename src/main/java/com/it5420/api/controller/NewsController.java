@@ -37,11 +37,11 @@ public class NewsController {
             @ApiResponse(responseCode  = "403", description = "Truy cập bị cấm"),
             @ApiResponse(responseCode  = "404", description = "Không tìm thấy")
     })
-    @GetMapping("/news/{offset}/{limit}")
+    @GetMapping("/news")
     public ResponseEntity<Page<News>> getAllNews(
             @Parameter(description = "offset: trang bat dau, limit: so bai lay")
-            @PathVariable("offset") int offset ,
-            @PathVariable("limit") int limit
+            @RequestParam("offset") int offset ,
+            @RequestParam("limit") int limit
     ){
        // return new ResponseEntity<>(newsService.getAll(offset, limit), HttpStatus.OK) ;
     //    System.out.println(repository.findDistinctByTitleContainingOrDescriptionContainingAllIgnoreCase("covid"));
