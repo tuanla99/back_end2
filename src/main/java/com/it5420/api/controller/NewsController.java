@@ -49,7 +49,7 @@ public class NewsController {
     }
 
 
-    @GetMapping("/news")
+    @GetMapping("/news/newspaper")
 
     public ResponseEntity<Page<News>> getAllNewsByNewspaper(
             @Parameter(description = "newspaper : Zing, ... , offset: trang bat dau, limit: so bai lay  ", required = true)
@@ -73,7 +73,7 @@ public class NewsController {
         return new ResponseEntity<>(newsService.findByTopic(category, offset, limit), HttpStatus.OK) ;
     }
 
-    @GetMapping("/search")
+    @GetMapping("/news/search")
     public ResponseEntity<List<News>> search(
             @Parameter(description = "tìm kiếm trên description, title", required = true)
             @RequestParam(name = "text") String text
@@ -81,7 +81,7 @@ public class NewsController {
         return new ResponseEntity<>(newsService.search(text),HttpStatus.OK) ;
     }
 
-    @GetMapping("/similar")
+    @GetMapping("/news/similar")
     public ResponseEntity<List<News>> similar(
             @Parameter(description = "Danh sách các bài tương tự, params la news_id", required = true)
             @RequestParam(name = "news_id") String news_id
