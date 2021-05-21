@@ -36,8 +36,8 @@ public class News {
     @Field(value = "Date")
     private Date date ;
 
-    @Field(value = "NoiDung")
-    private List<Content> contents ;
+//    @Field(value = "NoiDung")
+//    private List<Content> contents ;
 
     @Field(value = "Description")
     private String description ;
