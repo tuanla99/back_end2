@@ -49,25 +49,25 @@ public class NewsController {
     }
 
 
-    @GetMapping("/news/{newspaper}/{offset}/{limit}")
+    @GetMapping("/news")
 
     public ResponseEntity<Page<News>> getAllNewsByNewspaper(
             @Parameter(description = "newspaper : Zing, ... , offset: trang bat dau, limit: so bai lay  ", required = true)
-            @PathVariable("newspaper") String newspaper,
-            @PathVariable("offset") int offset ,
-            @PathVariable("limit") int limit
+            @RequestParam("newspaper") String newspaper,
+            @RequestParam("offset") int offset ,
+            @RequestParam("limit") int limit
     ){
 
         return new ResponseEntity<>(newsService.findByNewspaper(newspaper,offset,limit), HttpStatus.OK) ;
     }
 
-    @GetMapping("/news/category/{category}/{offset}/{limit}")
+    @GetMapping("/news/category")
 
     public ResponseEntity<Page<News>> getNewsByTopic(
             @Parameter(description = "category : Thoi su, ... , offset: trang bat dau, limit: so bai lay  ", required = true)
-            @PathVariable("category") String category,
-            @PathVariable("offset") int offset ,
-            @PathVariable("limit") int limit
+            @RequestParam("category") String category,
+            @RequestParam("offset") int offset ,
+            @RequestParam("limit") int limit
     ){
 
         return new ResponseEntity<>(newsService.findByTopic(category, offset, limit), HttpStatus.OK) ;
