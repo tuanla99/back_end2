@@ -21,7 +21,7 @@ public class NewsServiceImpl implements NewsService {
 
     @Override
     public Page<News> getAll( int offset, int limit) {
-        return  newsRepository.findByOrderByDateDesc(PageRequest.of(offset, limit,Sort.by("date").descending()));
+        return  newsRepository.findAll(PageRequest.of(offset, limit,Sort.by("date").descending()));
     }
 
     @Override
