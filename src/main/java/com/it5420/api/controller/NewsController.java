@@ -74,7 +74,7 @@ public class NewsController {
     }
 
     @GetMapping("/news/search")
-    public ResponseEntity<List<News>> search(
+    public ResponseEntity<Page<News>> search(
             @Parameter(description = "tìm kiếm trên description, title", required = true)
             @RequestParam(name = "text") String text,
             @RequestParam("offset") int offset ,
