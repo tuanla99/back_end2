@@ -9,6 +9,6 @@ public interface NewsService {
     Page<News> getAll( int offset, int limit) ;  // Lấy ra tất cả
     Page<News> findByNewspaper(String newspaper, int offset, int limit) ; // Tìm theo tên báo : Zing, ...
     Page<News> findByTopic(String topic, int offset, int limit) ; // Tìm theo chủ đề : thời sự, thể thao, ...
-    List<News> search( String text) ;
+    List<News> search( String text, int offset, int limit) ;
     List<News> similarNews(String id) ;
 }

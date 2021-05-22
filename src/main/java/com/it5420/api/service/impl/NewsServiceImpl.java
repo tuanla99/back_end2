@@ -35,8 +35,8 @@ public class NewsServiceImpl implements NewsService {
     }
 
     @Override
-    public List<News> search(String text) {
-        return newsRepository.findDistinctByTitleContainingOrDescriptionContainingAllIgnoreCase(text, text);
+    public List<News> search(String text, int offset, int limit) {
+        return newsRepository.findDistinctByTitleContainingOrDescriptionContainingAllIgnoreCase(text, text,PageRequest.of(offset,limit,Sort.by("date").descending()));
     }
 
     @Override

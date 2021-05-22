@@ -76,9 +76,11 @@ public class NewsController {
     @GetMapping("/news/search")
     public ResponseEntity<List<News>> search(
             @Parameter(description = "tìm kiếm trên description, title", required = true)
-            @RequestParam(name = "text") String text
+            @RequestParam(name = "text") String text,
+            @RequestParam("offset") int offset ,
+            @RequestParam("limit") int limit
     ){
-        return new ResponseEntity<>(newsService.search(text),HttpStatus.OK) ;
+        return new ResponseEntity<>(newsService.search(text, offset, limit),HttpStatus.OK) ;
     }
 
     @GetMapping("/news/similar")
