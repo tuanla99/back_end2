@@ -17,5 +17,5 @@ public interface NewsRepository extends MongoRepository<News, String> {
     List<News> getAllByNewspaper(String newspaper) ;
     Page<News> findByTopicContainingAllIgnoreCase(String topic, Pageable date) ; // dựa theo thể loại : thể thao, thời sự, ...
     List<News> findByTitleContainingAllIgnoreCase(String text) ; // Tìm kiếm dựa trên title
-    List<News> findDistinctByTitleContainingOrDescriptionContainingAllIgnoreCase(String title, String description, Pageable date) ; //Tìm kiếm dựa trên title và description
+    Page<News> findDistinctByTitleContainingOrDescriptionContainingAllIgnoreCase(String title, String description, Pageable date) ; //Tìm kiếm dựa trên title và description
 }
