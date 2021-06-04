@@ -17,7 +17,7 @@ public class OpenApiConfig {
         Server server1 = new Server();
         Server server2 = new Server();
         List<Server> servers = new ArrayList<>();
-        server1.url("http://localhost:8082") ;
+        server1.url("http://localhost:8080") ;
         server2.url("https://it5420.herokuapp.com/");
         servers.add(server1) ;
         servers.add(server2) ;

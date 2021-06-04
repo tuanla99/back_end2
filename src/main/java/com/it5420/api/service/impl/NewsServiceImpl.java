@@ -21,22 +21,22 @@ public class NewsServiceImpl implements NewsService {
 
     @Override
     public Page<News> getAll( int offset, int limit) {
-        return  newsRepository.findAll(PageRequest.of(offset, limit,Sort.by("date").descending()));
+        return  newsRepository.findAll(PageRequest.of(offset, limit,Sort.by(Sort.Order.desc("date"),Sort.Order.desc("totalSecond"))));
     }
 
     @Override
     public Page<News> findByNewspaper(String newspaper, int offset, int limit) {
-        return newsRepository.findByNewspaperContainingAllIgnoreCase(newspaper,PageRequest.of(offset,limit,Sort.by("date").descending()));
+        return newsRepository.findByNewspaperContainingAllIgnoreCase(newspaper,PageRequest.of(offset, limit,Sort.by(Sort.Order.desc("date"),Sort.Order.desc("totalSecond"))));
     }
 
     @Override
     public Page<News> findByTopic(String topic, int offset, int limit) {
-        return newsRepository.findByTopicContainingAllIgnoreCase(topic,PageRequest.of(offset,limit,Sort.by("date").descending()));
+        return newsRepository.findByTopicContainingAllIgnoreCase(topic,PageRequest.of(offset, limit,Sort.by(Sort.Order.desc("date"),Sort.Order.desc("totalSecond"))));
     }
 
     @Override
     public Page<News> search(String text, int offset, int limit) {
-        return newsRepository.findDistinctByTitleContainingOrDescriptionContainingAllIgnoreCase(text, text,PageRequest.of(offset,limit,Sort.by("date").descending()));
+        return newsRepository.findDistinctByTitleContainingOrDescriptionContainingAllIgnoreCase(text, text,PageRequest.of(offset, limit,Sort.by(Sort.Order.desc("date"),Sort.Order.desc("totalSecond"))));
     }
 
     @Override
